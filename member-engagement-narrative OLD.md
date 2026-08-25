@@ -65,21 +65,15 @@ Three popover cards:
 
 
 
-# Track — how member work is organized and advanced
+## Members drive the work of Mplify
 
-Members can see and follow the whole machine: the tools that hold it, who the members are, how work is structured in committees, and how projects move through sprints and ballots.
+Members create, steer, review, approve, and use everything the alliance produces. What is changing is not *who* does the work — it is how that work is organized and advanced, so members get from idea to published asset with less friction.
 
-## Mplify Member Portal
+- All Mplify members can take part in the work of any committee, and all activities within a project are open to every member of that project's committee.
+- Governance and asset decisions are made by vote. Voting Members are Principal and Operator Plus Members (per the Mplify Bylaws).
+- Committees are led by Co-Chairs (typically two), appointed by the Board of Directors. Projects are led by one or more Project Leads, appointed by and reporting to the committee Co-Chairs.
 
-The Member Portal is where the model comes together in one place: members initiate projects, onboard participants, run sprints and hold their project discussions, cast sprint and between-meeting ballots, and access published assets. It is the single home for finding the work, taking part in it, and using what the alliance produces.
-
-## Member information
-
-> **Placeholder — to develop.** What member information members can see and track in the portal — e.g. the member directory / [our members](https://www.mplify.net/about-mplify/our-members/), member companies and their representatives, roles, and membership status.
-
-Membership context that bears on the work: all Mplify members can take part in the work of any committee, and all activities within a project are open to every member of that project's committee. Governance and asset decisions are made by vote, and Voting Members are Principal and Operator Plus Members (per the Mplify Bylaws).
-
-## Member committees
+## Five committees
 
 Members organize their work in the five Mplify Alliance standing committees. All members can participate in all committee work; each committee runs the projects that create Mplify Assets. (Mandates below are summarized from MCRP §2 and the side-by-side committee comparison.)
 
@@ -89,9 +83,7 @@ Members organize their work in the five Mplify Alliance standing committees. All
 - **Marketing Committee (MC) — NEW** — Mplify "meta-assets" that explain and present the other committees' assets to the membership and the wider NaaS industry.
 - **Test and Certification Committee (TCC)** — The test and certification requirements that Mplify Assets must meet to achieve certified status. (The certification programs themselves are owned by the CPO.) Mainly business-oriented work.
 
-## Projects, sprints and ballots
-
-### Projects and the member journey
+## How members participate — projects create Mplify Assets
 
 Members participate by joining projects. A project runs inside one committee, is reviewed with the Co-Chairs before it starts, and produces a Project Deliverable that — once approved — becomes a published Mplify Asset. The member journey from idea to published asset (MADP):
 
@@ -112,16 +104,18 @@ What projects produce — **Mplify Assets**:
 
 Both final asset categories (Standards and References) require a Publish Ballot before publication.
 
-### Monthly sprints
+## Monthly sprints — the cadence and sprint ballots
 
 Execution runs on a single, predictable, alliance-wide cadence (MADP §5.2):
 
 - **Sprints are monthly and shared across all projects.** A sprint is named after the calendar month it most closely coincides with. Members always know when a sprint begins and ends.
 - **A sprint runs for a calendar month**, starting on the Monday after the previous sprint ballot.
-- **A Sprint Ballot happens at the end of every month** — it begins on the last Monday of the calendar month and lasts one week.
+- **A Sprint Ballot happens at the end of every month** — it begins on the last Monday of the calendar month and lasts one week. This is the formal monthly mechanism for members to review project status.
 - **Members can commit to one or more sprints** without committing to a project's entire lifecycle — lowering the bar to contribute.
 
-### From deliverable to published asset
+Sprint Ballot types (Yes / No / Abstain): **Continuation** (approve work continuing into the next sprint), **Pause** / **Resume**, **Mplify Number**, **Lock / Unlock Section**, **Draft** (publish a Draft Standard), and **Publish** (approve the final deliverable for publication).
+
+## From deliverable to published asset
 
 The asset lifecycle behind the sprints (MADP):
 
@@ -131,53 +125,6 @@ The asset lifecycle behind the sprints (MADP):
 4. **Publication ratified** — the Board of Directors ratifies the asset.
 5. **Published** — Mplify staff publish it through Mplify channels.
 6. **Deprecated** — when superseded, the asset is deprecated.
-
----
-
-# Influence — shaping the work
-
-Members do not just watch the work — they shape it, through how they review and comment on it, how they discuss and contribute, and how they vote.
-
-## AI-native 'review and comment'
-
-> **Placeholder — to develop.** Per the slide-2 spec, Influence is "shaping the work through rapid ai-native comment and review." Describe the AI-native review-and-comment capability: how members review and comment on drafts with AI assistance, what makes it faster than the traditional process, and where in the portal / project flow it happens.
-
-## Discussions and contributions
-
-During each sprint, project participants collaborate through the approved Mplify collaboration tools, repository locations, conference calls, and contribution mechanisms for the relevant committee. Collaboration is transparent to the committee and gives interested members a reasonable opportunity to review and contribute to the project deliverables as they evolve. Contribution is open: all activities within a project are open to every member of the parent committee.
-
-> **Placeholder — to develop.** Specifics of the discussion-and-contribution experience in the portal (contribution types, comment threads, how a contribution becomes part of a deliverable).
-
-## Voting
-
-Voting is how members formally influence outcomes. Two kinds of vote apply:
-
-- **Sprint Ballots (asset decisions, MADP).** The formal monthly mechanism for members to review project status. Types (Yes / No / Abstain): **Continuation** (approve work continuing into the next sprint), **Pause** / **Resume**, **Mplify Number**, **Lock / Unlock Section**, **Draft** (publish a Draft Standard), and **Publish** (approve the final deliverable for publication).
-- **Committee governance votes (MCRP).** Motions and decisions by a committee as a governance body. Voting Members are Principal and Operator Plus Members; quorum and pass thresholds are defined in MCRP §3.1.3 (e.g. a technical motion requires quorum and ≥75% of yes-and-no votes to be yes).
-
----
-
-# Drive — leadership and acceleration
-
-Members lead. Any member can take on leadership and move the work — and the industry — faster.
-
-## Committee leadership
-
-Each committee is led by one or more **Co-Chairs** — typically two — appointed by the Board of Directors (usually in June each year). Co-Chairs are responsible for committee agendas, decisions, compliance, and coordination, and they appoint and oversee the Project Leads within their committee.
-
-## Project leadership
-
-Each project is led by one or more **Project Leads**, appointed by and reporting to the committee Co-Chairs. The Project Lead is a prestigious leadership position: the lead builds the core group of participants, organizes calls and discussion in the project area, drives the deliverable through the monthly sprints, and initiates the ballots — including the Publish Ballot that completes the project.
-
-## Regional leadership
-
-> **Placeholder — to develop.** Not covered in the current source material. Describe regional leadership — regional chapters, ambassadors, or regional representation — and how members take on those roles to drive engagement in their part of the world.
-
----
-
-# Appendix — parked material
-
-_These sections are kept for reference but are not part of the current Track / Influence / Drive structure. Move any of them back in, or drop them, as the deck develops._
 
 ## Three major areas of work
 
@@ -193,6 +140,10 @@ Alongside the project areas, Mplify runs ongoing programs that deliver continuin
 
 - **Certification** — Mplify's certification programs verify conformance to its standards and APIs (including certified SASE and SD-WAN). The TCC defines the requirements assets must meet; the CPO owns the programs themselves.
 - **NaaS Federation** — the program that brings providers together to deliver federated network services across operator boundaries. (Runs both as a project area and an ongoing program.)
+
+## The Member Portal
+
+The Member Portal is where the model comes together in one place: members initiate projects, onboard participants, run sprints and hold their project discussions, cast sprint and between-meeting ballots, and access published assets. It is the single home for finding the work, taking part in it, and using what the alliance produces.
 
 ## The new approaches, in one view
 
