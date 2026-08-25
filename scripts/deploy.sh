@@ -13,6 +13,9 @@
 # MemberEngagementDeck, or iframe:
 #   /apex/MemberEngagementDeck
 #   /resource/memberEngagementDeck/member-engagement-deck.html
+#
+# The Member Portal page (published separately) is:
+#   https://members.mplify.net/s/member-engagement
 set -eu
 
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
