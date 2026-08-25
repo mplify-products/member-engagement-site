@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Member Engagement | Mplify Alliance</title>
+  <style>
+    @font-face {
+      font-family: "Sansation";
+      src: url("assets/fonts/Sansation-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Sansation";
+      src: url("assets/fonts/Sansation-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Roboto";
+      src: url("assets/fonts/Roboto-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Roboto";
+      src: url("assets/fonts/Roboto-Medium.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Roboto";
+      src: url("assets/fonts/Roboto-Bold.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --navy: #000136;
+      --navy-mid: #0b1658;
+      --blue: #244E9E;
+      --blue-lt: #3D7BC7;
+      --magenta: #790072;
+      --orange: #FD7801;
+      --yellow: #FEBF10;
+      --gray: #555555;
+      --gray-lt: #A1A1A1;
+      --white: #ffffff;
+      --ink: #f4f6fb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; background: var(--navy); color: var(--ink); }
+    body {
+      font-family: Roboto, "Segoe UI", Helvetica, Arial, sans-serif;
+      overflow: hidden;
+    }
+    h1, h2, h3, .wordmark {
+      font-family: Sansation, "Trebuchet MS", "Segoe UI", sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .deck {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .slides {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      padding: 56px 72px 88px;
+      background:
+        radial-gradient(1200px 600px at 110% -10%, rgba(61, 123, 199, 0.28), transparent 55%),
+        radial-gradient(900px 500px at -20% 110%, rgba(253, 120, 1, 0.16), transparent 50%),
+        linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
+    }
+    .slide.active { display: flex; flex-direction: column; }
+    .slide.title-slide { justify-content: flex-end; padding-bottom: 110px; }
+    .eyebrow {
+      color: var(--orange);
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    h1 { font-size: clamp(2.4rem, 4.6vw, 4.4rem); line-height: 1.08; max-width: 16ch; }
+    h2 { font-size: clamp(1.8rem, 3.2vw, 2.8rem); line-height: 1.15; margin-bottom: 28px; }
+    .lede {
+      margin-top: 28px;
+      max-width: 42rem;
+      font-size: 1.25rem;
+      line-height: 1.55;
+      color: rgba(244, 246, 251, 0.86);
+    }
+    .wordmark {
+      position: absolute;
+      top: 36px;
+      left: 72px;
+      font-size: 1.15rem;
+      color: var(--white);
+    }
+    .wordmark span { color: var(--orange); }
+
+    .grid { display: grid; gap: 18px; }
+    .grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+    .card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 22px 22px 20px;
+      min-height: 140px;
+    }
+    .card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+    .card p, .card li { color: rgba(244, 246, 251, 0.84); font-size: 1rem; line-height: 1.45; }
+    .card.new { border-color: var(--orange); box-shadow: inset 0 0 0 1px rgba(253, 120, 1, 0.25); }
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--orange);
+      border-radius: 999px;
+      padding: 3px 8px;
+      margin-bottom: 10px;
+    }
+    ul.clean { list-style: none; display: grid; gap: 14px; }
+    ul.clean li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+    .bullet {
+      flex: 0 0 12px;
+      height: 12px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 8px; }
+    .step {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 22px;
+      position: relative;
+    }
+    .step .n {
+      font-family: Sansation, sans-serif;
+      font-size: 2rem;
+      color: var(--yellow);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .stack { display: grid; gap: 14px; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+    .pill {
+      background: var(--blue);
+      color: var(--white);
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-weight: 500;
+    }
+    .naas {
+      margin-top: 28px;
+      padding: 22px 24px;
+      border-radius: 16px;
+      background: linear-gradient(90deg, var(--orange), #ff9a3c);
+      color: var(--navy);
+      font-family: Sansation, sans-serif;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+    .two-col { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; align-items: start; }
+    .muted { color: rgba(244, 246, 251, 0.75); font-size: 1.1rem; line-height: 1.5; }
+    .footer-note {
+      margin-top: auto;
+      color: var(--gray-lt);
+      font-size: 0.9rem;
+    }
+
+    .chrome {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px 0 72px;
+      background: linear-gradient(180deg, transparent, rgba(0, 1, 54, 0.92));
+      z-index: 5;
+    }
+    .progress {
+      position: absolute;
+      left: 0; right: 0; top: 0;
+      height: 3px;
+      background: rgba(255,255,255,0.12);
+    }
+    .progress > span {
+      display: block;
+      height: 100%;
+      background: var(--orange);
+      width: 0%;
+    }
+    .nav { display: flex; gap: 8px; align-items: center; }
+    button {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.06);
+      color: var(--white);
+      border-radius: 8px;
+      width: 40px;
+      height: 36px;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+    button:hover { background: rgba(253, 120, 1, 0.85); border-color: var(--orange); }
+    .counter { color: var(--gray-lt); font-size: 0.9rem; min-width: 4.5rem; }
+    .hint { color: var(--gray-lt); font-size: 0.8rem; }
+
+    @media (max-width: 980px) {
+      .slide { padding: 48px 28px 88px; }
+      .wordmark { left: 28px; }
+      .grid.cols-5, .grid.cols-3, .steps, .two-col, .grid.cols-2 {
+        grid-template-columns: 1fr;
+      }
+      .chrome { padding-left: 28px; }
+    }
+    @media print {
+      body { overflow: visible; background: var(--navy); }
+      .chrome { display: none; }
+      .slides { height: auto; }
+      .slide {
+        position: relative;
+        display: flex !important;
+        page-break-after: always;
+        min-height: 100vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck">
+    <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+    <div class="slides" id="slides">
+
+      <section class="slide title-slide active" data-slide>
+        <div class="wordmark">Mplify <span>Alliance</span></div>
+        <p class="eyebrow">Member discussion</p>
+        <h1>How member work is organized and advanced</h1>
+        <p class="lede">New approaches to collaboration, execution, tooling, and roadmap development — designed to help members move faster and work more effectively together.</p>
+      </section>
+
+      <section class="slide" data-slide>
+        <div class="wordmark">Mplify <span>Alliance</span></div>
+        <p class="eyebrow">Agenda</p>
+        <h2>What we will cover</h2>
+        <ul class="clean">
+          <li><span class="bullet"></span>How member work is organized and advanced across the alliance</li>
+          <li><span class="bullet"></span>New approaches to collaboration, execution, tooling, and roadmap development</li>
+          <li><span class="bullet"></span>How we move faster and work more effectively</li>
+          <li><span class="bullet"></span>How the Member Portal supports this model</li>
+        </ul>
+      </section>
+
+      <section class="slide" data-slide>
+        <div class="wordmark">Mplify <span>Alliance</span></div>
+        <p class="eyebrow">Principle</p>
+        <h2>Members drive the work of Mplify</h2>
+        <p class="lede">The alliance’s standards, APIs, certifications, and supporting assets are created by members, in member-led committees and projects. Staff enable the process; members steer the substance.</p>
+      </section>
+
+      <section class="slide" data-slide>
+        <div class="wordmark">Mplify <span>Alliance</span></div>
+        <p class="eyebrow">Organization</p>
+        <h2>Work is organized in five committees</h2>
+        <div class="grid cols-5">
+          <article class="card"><h3>Commercial and Business Committee</h3><p>CBC</p></article>
+          <article class="card"><h3>Digital Services Committee</h3><p>DSC</p></article>
+          <article class="card"><h3>LSO Committee</h3><p>LSOC</p></article>
+          <article class="card new"><span class="tag">New</span><h3>Marketing Committee</h3><p>Newly established</p></article>
+          <article class="card"><h3>Test and Certification Committee</h3><p>TCC</p></article>
+        </div>
+        <p class="footer-note">All members can participate in all committee work.</p>
+      </section>
+
+      <section class="slide" data-slide>
+        <div class="wordmark">Mplify <span>Alliance</span></div>
+        <p class="eyebrow">Participation</p>
+        <h2>How members take part</h2>
+        <div class="two-col">
+          <ul class="clean">
+            <li><span class="bullet"></span>Join the committees and projects that match your expertise and business priorities</li>
+            <li><span class="bullet"></span>Contribute to development inside projects</li>
+            <li><span class="bullet"></span>Steer, review, approve, and then use the resulting Mplify assets</li>
+          </ul>
+          <div class="card">
+            <h3>Open by design</h3>
+            <p>Participation is not limited to a single committee. Every employee of an active member company can engage across the work of the alliance.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-slide>
+        <div class="wordmark">Mplify <span>Alliance</span></div>
+        <p class="eyebrow">Outputs</p>
+        <h2>Projects create Mplify assets</h2>
+        <p class="muted">Project teams produce the materials the industry uses to implement, certify, and go to market.</p>
+        <div class="pill-row">
+          <span class="pill">Standards</span>
+          <span class="pill">APIs</span>
+          <span class="pill">Marketing materials</span>
+          <span class="pill">Blueprints</span>
+          <span class="pill">Models</span>
+          <span class="pill">And more</span>
+        </div>
+      </section>
+
+      <section class="slide" data-slide>
+        <div class="wordmark">Mplify <span>Alliance</span></div>
+        <p class="eyebrow">Governance</p>
+        <h2>Members steer, review, approve, and use</h2>
+        <div class="steps">
+          <div class="step"><div class="n">01</div><h3>Develop</h3><p>Work happens in projects, not in open-ended standing discussions.</p></div>
+          <div class="step"><div class="n">02</div><h3>Sprint</h3><p>Work is organized in one-month sprints.</p></div>
+          <div class="step"><div class="n">03</div><h3>Vote</h3><p>Voting takes place at the end of every month.</p></div>
+          <div class="step"><div class="n">04</div><h3>Use</h3><p>Approved assets move into member implementation and market use.</p></div>
+        </div>
+      </section>
+
+      <section class="slide" data-slide>
+        <div class="wordmark">Mplify <span>Alliance</span></div>
+        <p class="eyebrow">Cadence</p>
+        <h2>A monthly rhythm, on purpose</h2>
+        <div class="grid cols-2">
+          <article class="card">
+            <h3>One-month sprints</h3>
+            <p>Short cycles keep scope visible, make progress inspectable, and let members join or rejoin without waiting for a yearly cycle.</p>
+          </article>
+          <article class="card">
+            <h3>End-of-month voting</h3>
+            <p>Regular ballots convert project output into alliance decisions — so work does not stall in draft form.</p>
+          </article>
+        </div>
+        <p class="lede">The goal is speed with accountability: members move work forward together, then formally approve it.</p>
+      </section>
+
+      <section class="slide" data-slide>
+        <div class="wordmark">Mplify <span>Alliance</span></div>
+        <p class="eyebrow">Focus</p>
+        <h2>Three major areas of work</h2>
+        <div class="grid cols-3">
+          <article class="card"><h3>NaaS for AI</h3><p>Defining the network services and attributes required for AI-ready infrastructure.</p></article>
+          <article class="card"><h3>NaaS Federation</h3><p>Enabling multi-provider NaaS that can be offered, ordered, and operated across organizational boundaries.</p></article>
+          <article class="card"><h3>Agentic LSO</h3><p>Extending Lifecycle Service Orchestration so automated and agentic systems can act on LSO APIs.</p></article>
+        </div>
+        <div class="naas">All three roll up into NaaS</div>
+      </section>
+
+      <section class="slide" data-slide>
+        <div class="wordmark">Mplify <span>Alliance</span></div>
+        <p class="eyebrow">Now</p>
+        <h2>Current programs</h2>
+        <div class="grid cols-2">
+          <article class="card">
+            <h3>Certification</h3>
+            <p>Conformance and interoperability programs that turn standards into trusted, market-ready implementations.</p>
+          </article>
+          <article class="card">
+            <h3>NaaS Federation</h3>
+            <p>A current program of work to operationalize federated NaaS across the member ecosystem.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="slide" data-slide>
+        <div class="wordmark">Mplify <span>Alliance</span></div>
+        <p class="eyebrow">Tooling</p>
+        <h2>Use of the Member Portal</h2>
+        <p class="lede">The Member Portal is the operational home for this model — where members find the work, join it, advance it in sprints, and vote.</p>
+        <div class="grid cols-3">
+          <article class="card"><h3>Find the work</h3><p>Active projects, committee spaces, calendars, and artifacts in one place.</p></article>
+          <article class="card"><h3>Do the work</h3><p>Join, initiate, and lead projects on a monthly sprint cadence.</p></article>
+          <article class="card"><h3>Decide the work</h3><p>Open ballots at the end of each month convert drafts into approved Mplify assets.</p></article>
+        </div>
+      </section>
+
+      <section class="slide" data-slide>
+        <div class="wordmark">Mplify <span>Alliance</span></div>
+        <p class="eyebrow">Discussion</p>
+        <h2>Move faster, together</h2>
+        <ul class="clean">
+          <li><span class="bullet"></span>Committees organize the work; projects produce the assets</li>
+          <li><span class="bullet"></span>Monthly sprints and votes keep delivery predictable</li>
+          <li><span class="bullet"></span>NaaS for AI, NaaS Federation, and Agentic LSO concentrate effort where the industry needs it</li>
+          <li><span class="bullet"></span>The Member Portal is how members participate day to day</li>
+        </ul>
+        <p class="lede">What would help your teams engage more, and get more value from the work?</p>
+      </section>
+
+    </div>
+    <div class="chrome">
+      <span class="hint">Arrow keys, space, or click to advance</span>
+      <div class="nav">
+        <button type="button" id="prev" aria-label="Previous slide">‹</button>
+        <span class="counter" id="counter">1 / 1</span>
+        <button type="button" id="next" aria-label="Next slide">›</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const slides = [...document.querySelectorAll("[data-slide]")];
+    const bar = document.getElementById("bar");
+    const counter = document.getElementById("counter");
+    let i = 0;
+
+    function show(n) {
+      i = Math.max(0, Math.min(slides.length - 1, n));
+      slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
+      bar.style.width = ((i + 1) / slides.length * 100) + "%";
+      counter.textContent = (i + 1) + " / " + slides.length;
+      history.replaceState(null, "", "#s" + (i + 1));
+    }
+
+    document.getElementById("prev").addEventListener("click", () => show(i - 1));
+    document.getElementById("next").addEventListener("click", () => show(i + 1));
+    document.addEventListener("keydown", (e) => {
+      if (["ArrowRight", "PageDown", " ", "Enter"].includes(e.key)) { e.preventDefault(); show(i + 1); }
+      if (["ArrowLeft", "PageUp", "Backspace"].includes(e.key)) { e.preventDefault(); show(i - 1); }
+      if (e.key === "Home") show(0);
+      if (e.key === "End") show(slides.length - 1);
+    });
+    document.getElementById("slides").addEventListener("click", (e) => {
+      if (e.target.closest("button, a")) return;
+      const x = e.clientX / window.innerWidth;
+      show(x < 0.18 ? i - 1 : i + 1);
+    });
+
+    let tx = null;
+    document.addEventListener("touchstart", (e) => { tx = e.changedTouches[0].clientX; }, { passive: true });
+    document.addEventListener("touchend", (e) => {
+      if (tx == null) return;
+      const dx = e.changedTouches[0].clientX - tx;
+      if (dx > 40) show(i - 1);
+      if (dx < -40) show(i + 1);
+      tx = null;
+    }, { passive: true });
+
+    const hash = parseInt((location.hash.match(/s(\d+)/) || [])[1], 10);
+    show(Number.isFinite(hash) ? hash - 1 : 0);
+  </script>
+</body>
+</html>
